@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import main
+import helper as h
 
 
 app = Flask(__name__)
@@ -13,9 +13,9 @@ def home():
 
 @app.route("/find-film", methods=["POST"])
 def find_film():
-    imdb_id = main.find_imdb()
-    movie_title, year, plot, poster = main.call_api(imdb_id)
-    return f"TITLE:{movie_title} \n YEAR: {year} \n PLOT: {plot} \n POSTER: {poster} "
+    imdb_id = h.find_imdb()
+    movie_title, year, plot, poster, runtime = h.call_api(imdb_id) ##NEEDS TO BE A DICT INSTEAD OF TUPLE
+    return render_template("view_film.html", movie_title=movie_title, poster=poster, plot=plot, year=year, runtime=runtime)
 
 
 if __name__ =="__main__":
