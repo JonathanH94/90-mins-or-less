@@ -12,6 +12,7 @@
     <h1>90 Mins or Less</h1>
 
     <h2>{{movie_title}}</h2><br>
+    <h2>{{movie_title | replace(' ', '_')}}</h2><br>
     
     
     <img src="{{poster}}">
@@ -19,6 +20,8 @@
     <h3>{{year}}</h3>
     <h3>{{runtime}}</h3>
     <p>{{plot}}</p>
+    <a href="https://www.imdb.com/title/{{imdb_id}}"><img src="{{ url_for('static', filename='IMDb-Logo-660723003.png') }}" height="50" width="60"></a><br>
+    <a href="https://www.rottentomatoes.com/m/{{movie_title | replace(' ', '_')}}"><img src="{{ url_for('static', filename='rt.png') }}" height="50" width="50"></a>
     </form>
   </body>
 </html>

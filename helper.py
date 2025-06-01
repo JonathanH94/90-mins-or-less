@@ -23,7 +23,7 @@ def find_imdb() -> str:
         
     
 
-def call_api(imdb_id: str):
+def call_api(imdb_id: str)->tuple:
     url = f"http://www.omdbapi.com/?i={imdb_id}&apikey={api_key}"
     response = requests.get(url)
     data = response.json()
