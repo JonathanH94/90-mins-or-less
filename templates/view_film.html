@@ -25,15 +25,15 @@
       </div>
     
     <div class="col-md-8">
-    <p class="text-muted mb-2">{{year}} {{runtime}} mins</p>
+    <p class="text-muted mb-2">{{year}} {{runtime}}s</p>
     <p>{{plot}}</p>
 
     <div class="d-flex align-items-center mt-3">
-    <a href="https://www.imdb.com/title/{{imdb_id}}"><img src="{{ url_for('static', filename='IMDb-Logo-660723003.png') }}" alt="IMDb" class="rating-icon"></a>
-    <span class="me-4">{{imdb_rating}}</spa>
+    <img src="{{ url_for('static', filename='IMDb-Logo-660723003.png') }}" alt="IMDb" class="rating-icon">
+    <a href="https://www.imdb.com/title/{{imdb_id}}"><span class="me-4">{{imdb_rating}}/10</span></a>
 
     <a href="https://www.rottentomatoes.com/m/{{movie_title | replace(' ', '_')}}"><img src="{{ url_for('static', filename='rt.png') }}" alt="Rotten Tomatoes" class="rating-icon">
-    <span>%</span>
+    <span>{{rt_rating}}%</span>
     </div>
 
     <a href="{{url_for('home')}}" class="btn btn-outline-primary mt-4">Try Another</a>
