@@ -9,9 +9,6 @@ load_dotenv()
 api_key = os.getenv("api_key")
 
 
-
-
-
 def find_imdb() -> str:
 
     with sqlite3.connect('movie_database.db') as conn:
@@ -21,7 +18,6 @@ def find_imdb() -> str:
         id, imdb_id, title, runtime, genre = cur.fetchone()
         return imdb_id
         
-    
 
 def call_api(imdb_id: str)->tuple:
     url = f"http://www.omdbapi.com/?i={imdb_id}&apikey={api_key}"
@@ -33,7 +29,9 @@ def call_api(imdb_id: str)->tuple:
     plot = data.get('Plot')
     poster = data.get('Poster')
     runtime = data.get('Runtime')
-    return movie_title, year, plot, poster, runtime ##NEEDS TO BE A DICT
+    imdb_rating = data['Ratings'][0]['Value']
+    
+    return movie_title, year, plot, poster, runtime, imdb_rating ##NEEDS TO BE A DICT
 
 
 
