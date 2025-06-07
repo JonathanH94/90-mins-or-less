@@ -24,7 +24,7 @@ def call_api(imdb_id: str)->tuple:
     response = requests.get(url)
     data: dict = response.json()
     ##NEED TO CHANGE THIS TO A DICT TO RETURN
-    print(data)
+    #print(data)
     movie_title = data.get('Title')
     year = data.get('Year')
     plot = data.get('Plot')

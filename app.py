@@ -10,7 +10,6 @@ def home():
     return render_template("home.html")
 
 
-
 @app.route("/find-film", methods=["POST"])
 def find_film():
     imdb_id = h.find_imdb()
